@@ -1,6 +1,12 @@
-let check = getElementsById('exampleCheck1');
-let btn = getElementById('btn');
+function enable() {
+    let check = document.getElementById("exampleCheck1");
+    let btn = document.getElementById("btn");
+    console.log('hello');
 
-if(check[0].checked){
-    document.getElementById('btn') = style.display.block;
+    if(check.checked){
+    console.log('hello!!!');
+        btn.removeAttribute("disabled");
+    }else{
+        btn.disabled = true;
+    }
 }

@@ -4,7 +4,7 @@
 
     if(!$connect){
         // die(mysqli_error($con)); 
-        echo "T'es pas connecté al3awed !";  
+        echo "You're not connected !";  
     }
 ?>
 <!-- ----------------------  -->
