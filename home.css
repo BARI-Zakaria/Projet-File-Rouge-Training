@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+                    /* 000000000 NAVBAR 000000000 */
+
+.navbar {
+background-color: #E64545;
+display: flex;
+flex-direction: row;
+}
+.links {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+}
+#img {
+    width: 40%;
+    margin: 0 0 0 50px;
+}
+.btn3 {
+    width: 100%;
+    height: 30px;
+    background-color: #f1f1f1;
+    border: 0;
+    border-radius: 10px;
+    margin: 0 40px 0 0;
+}
+.btn4 {
+    width: 10%;
+    height: 30px;
+    background-color: #f1f1f1;
+    border: 0;
+    border-radius: 10px;
+    margin: 0 40px 0 0;
+}
+.links .btn3 a, .plus .btn4 a {
+    text-decoration: none;
+    color: black;
+}
+.links .btn3 a:hover, .plus .btn4 a:hover {
+    color: #E64545;
+}
+#exampleDataList {
+    width: 30%;
+}
+.plus {
+    background-color: #E56868;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu button {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 0 0 20px;
+}
+#exampleDataList {
+    display: block;
+    width: 30%;
+    height: 30px;
+    margin: 10px;
+    background: #F1F1F1;
+    border: 4px solid #FFFFFF;
+    border-radius: 40px;
+
+
+}
+::placeholder {
+    color: #E64545;
+}
+
+
+
+.sidebar {
+  margin: 11% 0 0 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+ 
+/* .sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+} */
+
+
+
+
+/* @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */

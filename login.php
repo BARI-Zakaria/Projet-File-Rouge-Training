@@ -2,7 +2,7 @@
 <!-- CONNEXION AU SERVEUR -->
 
 <?php include 'connect.php';?>
-
+    
 <!-- ----------------------  -->
 
 <?php
