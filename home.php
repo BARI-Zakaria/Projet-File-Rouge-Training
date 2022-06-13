@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> <!-- Link Bootstrap CSS-->
     <link rel="stylesheet" href="home.css"> <!--Link CSS-->
-    <title>Home</title>
+    <title>Kirae.ma</title>
 </head>
 <body>
     <nav class="navbar">
@@ -24,85 +24,62 @@
 
     <nav class="plus">
 
-    <div class="menu">
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
-        <i class="fas fa-bars fa-1x"></i></span>Catégories</button>
-        
-        
-    </div>
+      <div class="menu">
+          <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+          aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+          <i class="fas fa-bars fa-1x"></i></span><span class="cat">Catégorie</span></button> 
+      </div>
     <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chercher ici un produit..."> 
     <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
 
     </nav>
-        <!-- <div class="sidebar">
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chercher par catégorie..."> 
-            <a class="active" href="#home">Jardinage <span style='margin: 30px; font-size: 1.2em;'>&#62;</span></a>
-            <a href="#news">Plomberie <span style='margin: 30px; font-size: 1.2em;'>&#62;</span></a>
-            <a href=""></a>
-        </div> -->
+ 
 
-    <?php 
-    include 'connect.php';
-    $query = "SELECT * FROM produit ORDER BY idProduit ASC LIMIT 6";
-    $result = mysqli_query($connect, $query);
-    if(mysqli_fetch_assoc($result) > 0){?>
-            
-<div class="card-group"></div>
-<?php
-    while($row = mysqli_fetch_array($result)){
+      <?php 
+      include 'connect.php';
+      $query = "SELECT * FROM produit ORDER BY idProduit ASC LIMIT 6";
+      $result = mysqli_query($connect, $query);
+      if(mysqli_num_rows($result) > 0){
         ?>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $row["prixProduit"]. 'DH' ?></h5>
-        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $row["prixProduit"]. 'DH' ?></h5>
-        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $row["prixProduit"]. 'DH' ?></h5>
-        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $row["prixProduit"] ?></h5>
-        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><?php echo $row["prixProduit"] ?></h5>
-                <p class="card-text"><?php echo $row["typeProduit"] ?></p>
-            </div> -->
-            <?php
-        }
-    }
+        
+
+    <?php
+        while($row = mysqli_fetch_array($result)){    
     ?>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card-group">
+          <div class="card">
+            <img src="<?php echo $row["imageProduit"];?>" class="card-img-top" alt="ProductImage">
+            <div class="card-body">
+              <h4 class="card-title"><?php echo $row["nomProduit"] ?></h4>
+              <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH' ?></h5>
+              <p class="card-text"><?php echo $row["typeProduit"] ?></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>        
+  </div>
+              <?php
+        }
+      }
+      ?>
 
-
-    </body>
+<footer>
+        <div class="footer">
+            <img src="Images/kirae.png" alt="kiraeLogo" id="img2">
+            <div class="SMedia">
+                <p id="SMedia">Suivez-nous sur :</p>
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <p id="copyright">Copyrights © 2022 All Rights Reserved by Kirae.ma .</p>
+    </footer>
+</body>
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="script.js"></script>
 </html>
