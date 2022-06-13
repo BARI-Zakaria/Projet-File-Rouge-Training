@@ -35,14 +35,73 @@
     <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
 
     </nav>
-    <div class="sidebar">
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chercher par catégorie..."> 
-        <a class="active" href="#home">Jardinage <span style='margin: 30px; font-size: 1.2em;'>&#62;</span></a>
-        <a href="#news">Plomberie <span style='margin: 30px; font-size: 1.2em;'>&#62;</span></a>
-        <a href=""></a>
+        <!-- <div class="sidebar">
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chercher par catégorie..."> 
+            <a class="active" href="#home">Jardinage <span style='margin: 30px; font-size: 1.2em;'>&#62;</span></a>
+            <a href="#news">Plomberie <span style='margin: 30px; font-size: 1.2em;'>&#62;</span></a>
+            <a href=""></a>
+        </div> -->
+
+    <?php 
+    include 'connect.php';
+    $query = "SELECT * FROM produit ORDER BY idProduit ASC LIMIT 6";
+    $result = mysqli_query($connect, $query);
+    if(mysqli_fetch_assoc($result) > 0){?>
+            
+<div class="card-group"></div>
+<?php
+    while($row = mysqli_fetch_array($result)){
+        ?>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row["prixProduit"]. 'DH' ?></h5>
+        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
+      </div>
     </div>
-    
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row["prixProduit"]. 'DH' ?></h5>
+        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row["prixProduit"]. 'DH' ?></h5>
+        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row["prixProduit"] ?></h5>
+        <p class="card-text"><?php echo $row["typeProduit"] ?></p>
+      </div>
+    </div>
+  </div>
 </div>
+    <!-- <div class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $row["prixProduit"] ?></h5>
+                <p class="card-text"><?php echo $row["typeProduit"] ?></p>
+            </div> -->
+            <?php
+        }
+    }
+    ?>
+
+
     </body>
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="script.js"></script>
