@@ -1,6 +1,6 @@
 <!-- CONNEXION AU SERVEUR -->
 <?php
-    $connect = new mysqli ('localhost', 'root', '', 'rental');
+    $connect = new mysqli ('localhost', 'root', '', 'rentalALT');
 
     if(!$connect){
         // die(mysqli_error($con)); 
