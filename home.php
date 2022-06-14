@@ -37,9 +37,10 @@
 
       <?php 
       include 'connect.php';
-      $query = "SELECT * FROM `media` M, `produit` P
-                WHERE typeMedia = 'proPics'
-                ORDER BY P.idProduit ASC LIMIT 6";
+      $query = "SELECT 	* FROM `media` M
+                INNER JOIN produit P
+                WHERE P.idProduit = M.idProduit
+                ORDER BY M.ideMedia ASC LIMIT 6" ;
       $result = mysqli_query($connect, $query);
       if(mysqli_num_rows($result) > 0){
         ?>
@@ -54,17 +55,7 @@
       <div class="col-md-4">
         <div class="card-group">
           <div class="card" id="card">
-            <img src="
-        <?php
-        while($row = mysqli_fetch_array($result)){
-
-    ?>
-            <?php  
-            echo 'Images/Matériels/proPics/'. $row["urlMedia"]; 
-            ?>" class="card-img-top" alt="ProductImage">
-
-
-
+            <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"]; ?>" class="card-img-top" alt="ProductImage">
             <div class="card-body">
               <h4 class="card-title"><?php echo $row["nomProduit"]; ?></h4>
               <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH'; ?></h5>
@@ -77,10 +68,6 @@
               <?php
         }
       }
-      ?>
-                    <?php
-        }
-      
       ?>
           </div>        
   </div>
