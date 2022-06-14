@@ -35,6 +35,7 @@
     </nav>
  
 
+    <a href="#">Voir plus ></a>
       <?php 
       include 'connect.php';
       $query = "SELECT 	* FROM `media` M
@@ -44,18 +45,19 @@
       $result = mysqli_query($connect, $query);
       if(mysqli_num_rows($result) > 0){
         ?>
-        
         <div class="container">
-    <div class="row">
+          <div class="row">
     <?php
         while($row = mysqli_fetch_array($result)){
 
     ?>
-
-      <div class="col-md-4">
+    
+      <div class="col-md-4 col-sm-6">
         <div class="card-group">
-          <div class="card" id="card">
+          <div class="card">
+            <div class="box">
             <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"]; ?>" class="card-img-top" alt="ProductImage">
+            </div>
             <div class="card-body">
               <h4 class="card-title"><?php echo $row["nomProduit"]; ?></h4>
               <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH'; ?></h5>

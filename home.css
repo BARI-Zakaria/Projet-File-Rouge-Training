@@ -50,10 +50,11 @@ flex-direction: row;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    z-index: 1;
+    /* position: fixed;
+    z-index: 1; */
     width: 100%;
 }
+
 .menu button {
     color: #fff;
     font-size: 1.5em;
@@ -71,15 +72,24 @@ flex-direction: row;
 ::placeholder {
     color: #E64545;
 }
-#card{
-  padding: 50px;
+.card{
+  /* padding: 50px; */
   border-radius: 15px;
-  /* border: 3px solid #E64545; */
+  border: 3px solid #E56868;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-.card-price, .card-title {
-  font: 1.5em;
+.card-title {
+  /* text-align: center; */
+  font-size: 1.5em;
+  color: #fff;
 }
-.card-price, .card-title, p {
+.card-price {
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+}
+p {
+  text-align: center;
   font-size: 1em;
   color: #fff;
 }
@@ -108,12 +118,17 @@ flex-direction: row;
   background-color: #555;
   color: white;
 }
-
 .row {
-  width: 80%;
-  margin: 70px;
+  width: 100%;
+  height: 100%;
+  margin: 50px 0 50px 0;
 }
-
+div.box {
+  text-align: center;
+}
+.card-img-top {
+  width: 50%;
+}
 
                     /* 0000000 FOOTER 0000000 */
 footer {
@@ -207,6 +222,18 @@ i {
     ::placeholder {
       font-size: 0.7em;
       align-items: center;
+    }
+    .navbar {
+      display: none;
+    }
+    .card-title, .card-price, p {
+      font-size: 1em;
+      text-align: left;
+    }
+    .row {
+      width: 100%;
+      height: 100%;
+      margin: 0;
     }
 }
 
