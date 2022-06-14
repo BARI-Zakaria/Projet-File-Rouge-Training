@@ -50,6 +50,9 @@ flex-direction: row;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 .menu button {
     color: #fff;
@@ -68,11 +71,16 @@ flex-direction: row;
 ::placeholder {
     color: #E64545;
 }
-.card{
+#card{
+  padding: 50px;
   border-radius: 15px;
-  border: 3px solid #E64545;
+  /* border: 3px solid #E64545; */
+}
+.card-price, .card-title {
+  font: 1.5em;
 }
 .card-price, .card-title, p {
+  font-size: 1em;
   color: #fff;
 }
 .card-body {
@@ -102,8 +110,8 @@ flex-direction: row;
 }
 
 .row {
-  width: 15rem;
-  margin: 50px;
+  width: 80%;
+  margin: 70px;
 }
 
 
