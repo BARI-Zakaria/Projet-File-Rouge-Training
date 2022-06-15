@@ -1,3 +1,23 @@
+<?php
+ if(isset($_POST['search'])){
+    $valueToSearch = $_POST['prd'];
+    // search in all table columns
+    // using concat mysql function
+    $sql = "SELECT * FROM `produit` WHERE CONCAT(`nomProduit`, `prixProduit`, `typeProduit`, `garantieProduit`)LIKE'%".$valueToSearch."%'";
+    $search_result = filterTable($sql);
+ }else{
+    $sql = "SELECT * FROM `produit`";
+    $search_result = filterTable($sql);
+ }
+
+ // function to connect and execute the query
+function filterTable($sql){
+    include 'connect.php';
+    $filter_Result = mysqli_query($connect, $sql);
+    return $filter_Result;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +49,16 @@
           aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
           <i class="fas fa-bars fa-1x"></i></span><span class="cat">Catégorie</span></button> 
       </div>
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chercher ici un produit..."> 
-    <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
+      <form action="" method="post">
+        <input type="text" class="form-control" name="prd" id="exampleDataList"  placeholder="Chercher ici un produit...">
+        <button class="btn btn-outline-primary" type="submit" name="search" id="button-addon2">Chercher</button>
+        </form>
+      <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
+
 
     </nav>
  
 
-    <a href="#">Voir plus ></a>
       <?php 
       include 'connect.php';
       $query = "SELECT 	* FROM `media` M
@@ -43,6 +66,9 @@
                 WHERE P.idProduit = M.idProduit
                 ORDER BY M.ideMedia ASC LIMIT 6" ;
       $result = mysqli_query($connect, $query);
+      $sql = "SELECT * FROM `produit`";
+      $result=mysqli_query($connect, $sql);
+                
       if(mysqli_num_rows($result) > 0){
         ?>
         <div class="container">
@@ -50,30 +76,34 @@
     <?php
         while($row = mysqli_fetch_array($result)){
 
+          while($row = mysqli_fetch_array($search_result)){
+
+
     ?>
-    
       <div class="col-md-4 col-sm-6">
         <div class="card-group">
           <div class="card">
             <div class="box">
-            <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"]; ?>" class="card-img-top" alt="ProductImage">
+            <a href="detail.php?id" <?php echo $row["idProduit"];?>>
+            <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"];?>" class="card-img-top" alt="ProductImage">
+            </a>
             </div>
             <div class="card-body">
-              <h4 class="card-title"><?php echo $row["nomProduit"]; ?></h4>
-              <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH'; ?></h5>
-              <p class="card-text"><?php echo $row["typeProduit"] ;?></p>
+              <h4 class="card-title"><?php echo $row["nomProduit"];?></h4>
+              <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH';?></h5>
+              <p class="card-text"><?php echo $row["typeProduit"] ; ?></p>
             </div>
           </div>
         </div>
       </div>
 
-              <?php
+      <?php
         }
       }
+    }
       ?>
           </div>        
   </div>
-
 <footer>
         <div class="footer">
             <img src="Images/kirae.png" alt="kiraeLogo" id="img2">
