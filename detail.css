@@ -49,6 +49,13 @@ flex-direction: row;
 .links .btn3 a:hover {
     color: #E64545;
 }
+.card-img-top {
+    width: 50%;
+}
+div.box {
+  text-align: center;
+  margin: 0 10% 0 0;
+}
                     /* 00000000000000000000000000 */
 
 
@@ -56,15 +63,27 @@ flex-direction: row;
 .container {
     width: 100%;
     margin-top: 50px;
-    text-align: center;
+    /* text-align: center; */
     display: flex;
     justify-content: center;
 }
 form {
     background-color: #f1f1f1;
-    margin: 50px;
-    text-align: center;
+    margin: 80px;
+    /* text-align: center;  */
     padding: 45px;
     border-radius: 15px;
-    width: 553px;
+    width: 100%;
 }
+.bold {
+    font-weight: bold;
+}
+.unique {
+    font-weight: bold;
+    color: #E64545;
+}
+
+
+
+
+

@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 
     <nav class="navbar">
         <div class="box">
-        <img src="Images/kirae.png" alt="kiraeLogo" id="img">
+        <a href="home.php"><img src="Images/kirae.png" alt="kiraeLogo" id="img"></a>
         </div>
         <button type="button" class="btn3">À propos</button>
     </nav>

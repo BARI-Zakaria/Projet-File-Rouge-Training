@@ -47,9 +47,9 @@ flex-direction: row;
 }
 .plus {
     background-color: #E56868;
-    /* display: flex;
+    display: flex;
     justify-content: space-between;
-    align-items: center; */
+    align-items: center;
     /* position: fixed;
     z-index: 1; */
     width: 100%;
