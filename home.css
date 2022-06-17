@@ -97,6 +97,11 @@ p {
   font-size: 1em;
   color: #fff;
 }
+.cat {
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+}
 .card-body {
   background-color: #E64545;
   border-radius: 0 0 10px 10px; 
@@ -168,6 +173,69 @@ i {
     color: #fff;
     text-align: center;
 }
+                    /* 0000000000000000000 CREATE THE SIDEBAR 0000000000000000000000 */
+
+
+.sidebar {
+/* display: none; */
+/* position: fixed; */
+top: 30px;
+left: -250px;
+width: 250px;
+height: 80vh;
+transition: all .5s ease;
+z-index: 1;
+}
+.sidebar input {
+width: 250px;
+height: 3vh;
+border-radius: 17px;
+text-align: center;
+user-select: none;
+margin: 50px 0 0 0;
+}
+
+.sidebar ul li {
+display: block;
+width: 100%;
+height: 100%;
+line-height: 75px;
+font-size: 20px;
+color: #364c64de;
+margin: 50px 0 0 0;
+transition: .5s;
+cursor: pointer;
+
+}
+ul li:hover  {
+padding-left: 50px; 
+background-color: #E56868;
+color: #fff;
+}
+#check {
+display: none;
+}
+#btn { 
+/* display: none; */
+right: 0px; 
+top: 20px;
+font-size: 30px;
+color: #E64545;
+padding: 6px 12px;
+transition: all .5s;
+cursor: pointer;
+background: #F1F1F1;
+border-radius: 3px;
+}
+
+#check:checked ~ .sidebar {
+left: 0;
+}
+#check:checked ~ #btn {
+left: 250px;
+opacity: 0;
+pointer-events: none;
+}
                     /* 00000000000000000000000000 */
 
 
@@ -235,6 +303,9 @@ i {
       width: 100%;
       height: 100%;
       margin: 0;
+    }
+    .sidebar {
+      top: 0;
     }
 }
 

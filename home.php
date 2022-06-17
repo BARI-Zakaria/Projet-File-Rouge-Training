@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--CDN FONT AWESOME-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"><!--CDN FONT AWESOME-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> <!-- Link Bootstrap CSS-->
     <link rel="stylesheet" href="home.css"> <!--Link CSS-->
     <title>Kirae.ma</title>
@@ -25,18 +25,28 @@
     <nav class="plus">
 
       <div class="menu">
-          <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-          aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
-          <i class="fas fa-bars fa-1x"></i></span><span class="cat">Catégorie</span></button> 
+        <label for="check">
+          <i class="fas fa-bars fa-1x" id="btn"></i>
+          <span class="cat">Catégories</span>
+        </label>
       </div>
       
         <input type="text" class="form-control" name="prd" id="exampleDataList"  placeholder="Chercher ici un produit...">
         </form>
       <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
 
-
     </nav>
- 
+    <input type="checkbox" id="check">
+        <div class="sidebar">
+            <!-- <input type="search" name="search" id="search"> -->
+            <div class="liens">
+                <ul>
+                    <li>Bricolage ></li>
+                    <li>Jardinage ></li>
+                    <li>Piscine ></li>
+                </ul>
+            </div>
+        </div>
 
       <?php 
       include 'connect.php';
