@@ -4,38 +4,19 @@ function enable() {
     console.log('hello');
 
     if(check.checked){
-    console.log('hello!!!');
         btn.removeAttribute("disabled");
     }else{
         btn.disabled = true;
     }
 }
 
-
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+function login(loginForm) {
+  if(loginForm.email.value && loginForm.password.value){
+    let username = document.getElementById("userName");
+    document.write = ('<html><body><h1><b><center>');
+    document.write = ("Welcome" + " " + username);
+    document.write = ('</html></body></h1></b></center>');
+  }else {
+    alert('LFARDA KACH KACH !')
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
 }
