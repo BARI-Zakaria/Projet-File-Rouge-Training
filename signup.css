@@ -25,6 +25,10 @@ flex-direction: row;
     border-radius: 10px;
     margin: 0 50px 0 0;
 }
+a {
+    text-decoration: none;
+    color: #fff;
+}
                     /* 00000000000000000000000000 */
 
 
