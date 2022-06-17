@@ -72,6 +72,10 @@ flex-direction: row;
 ::placeholder {
     color: #E64545;
 }
+
+
+                    /* 000000000 MAIN 000000000 */
+
 .card{
   /* padding: 50px; */
   border-radius: 15px;
@@ -201,9 +205,6 @@ i {
     .box {
         text-align: center;
         margin: 0 0 0 15%;
-    }
-    #link {
-        font-size: 10px;
     }
     .menu .cat {
       display: none;

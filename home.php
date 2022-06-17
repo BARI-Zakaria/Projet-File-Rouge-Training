@@ -43,7 +43,7 @@
       $query = "SELECT 	* FROM `media` M
                 INNER JOIN produit P
                 WHERE P.idProduit = M.idProduit
-                ORDER BY M.ideMedia ASC LIMIT 6";
+                ORDER BY RAND() ASC LIMIT 6";
       $result = mysqli_query($connect, $query);
       $sql = "SELECT * FROM `produit`";
       if(mysqli_num_rows($result) > 0){
