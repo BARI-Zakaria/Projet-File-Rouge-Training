@@ -145,7 +145,7 @@ color: #fff;
 background-color: #E64545;
 border-radius: 0 0 10px 10px; 
 }
-#a, #a:hover {
+.a, .a:hover {
     text-decoration: none;
     color: #fff;
     font-size: 1em;

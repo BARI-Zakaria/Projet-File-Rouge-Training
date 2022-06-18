@@ -75,11 +75,15 @@ $result2 = mysqli_query($connect, $sqlQuery2);
         }
         ?>
         <button type="submit" name="valid" id="check">
-          <a href="checkOut.php?id=<?php echo $product["idProduit"];?>" id="a">Réserver
+          <a href="checkOut.php?id=<?php echo $product["idProduit"];?>" class="a">Réserver
             <i class="fa-solid fa-circle-check"></i>
           </a>
         </button>
-        <button type="submit" name="valid" id="check1"><i class="fa-solid fa-phone"></i></button>    
+        <button type="submit" name="valid" id="check1">
+          <a href="tel:+212694167883" class="a">Call
+            <i class="fa-solid fa-phone"></i>
+          </a>
+        </button>    
     </form>
     
 </div>
