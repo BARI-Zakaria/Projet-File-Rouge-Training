@@ -1,7 +1,11 @@
 
 <!-- CONNEXION AU SERVEUR -->
 
-<?php include 'connect.php';?>
+<?php include 'connect.php';
+
+session_start();
+
+?>
     
 <!-- ----------------------  -->
 
@@ -16,7 +20,9 @@ if(isset($_POST['submit'])){
 
     $sql = "SELECT passwordClient from `client` WHERE emailClient='$email' and passwordClient='$password'";
     $result = mysqli_query($connect, $sql);
-    if($row=mysqli_fetch_assoc($result)){
+    if(mysqli_num_rows($result) > 0){
+        $row=mysqli_fetch_assoc($result);
+        $_SESSION["username"] = $row["nomClient"];
         header('location:home.php');
     }else{
         $messageEmail = '<span class="error">* Votre adresse email est introuvable</span>';

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +22,14 @@
     <img src="Images/kirae.png" alt="kiraeLogo" id="img">
     </div>
     <div class="links">
-    <button type="button" class="btn3"><a href="login.php">Se connecter</a></button>
-    <button type="button" class="btn3">À propos</button>
+      <button type="button" class="btn3"><a href="login.php">Se connecter</a></button>
+      <button type="button" class="btn3">À propos</button>
     </div>
+    
+  </nav>
 
-    </nav>
-
+  <?php echo "<h1>Bounjour " . $_SESSION["username"] . "</h1>";?>
+  <a href="logout.php">log out</a>
     <nav class="plus">
 
       <div class="menu">
