@@ -75,15 +75,15 @@ if ($_SESSION["status"] != true){
                 ORDER BY RAND() ASC LIMIT 6";
       $result = mysqli_query($connect, $query);
       $sql = "SELECT * FROM `produit`";
+
       if(mysqli_num_rows($result) > 0){
         ?>
+
   <div class="container">
      <div class="row">
       <?php
 
             while($row = mysqli_fetch_array($result)){
-
-
       ?>
         <div class="col-md-4 col-sm-6">
           <div class="card-group">
@@ -93,6 +93,7 @@ if ($_SESSION["status"] != true){
               <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"];?>" class="card-img-top" alt="ProductImage">
               </a>
               </div>
+              
               <div class="card-body">
                 <h4 class="card-title"><?php echo $row["nomProduit"];?></h4>
                 <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH';?></h5>
