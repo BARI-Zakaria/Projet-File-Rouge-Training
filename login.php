@@ -20,8 +20,7 @@ if(isset($_POST['submit'])){
 
     $sql = "SELECT passwordClient from `client` WHERE emailClient='$email' and passwordClient='$password'";
     $result = mysqli_query($connect, $sql);
-    if(mysqli_num_rows($result) > 0){
-        $row=mysqli_fetch_assoc($result);
+    if($row=mysqli_fetch_assoc($result)){
         $_SESSION["username"] = $row["nomClient"];
         header('location:home.php');
     }else{
