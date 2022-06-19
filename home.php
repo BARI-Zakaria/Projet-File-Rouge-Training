@@ -1,7 +1,10 @@
 <?php
 
 session_start();
+if ($_SESSION["status"] != true){
 
+  header("Location:login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,21 +19,29 @@ session_start();
     <title>Kirae.ma</title>
 </head>
 <body>
-    <nav class="navbar">
+  <nav class="navbar">
 
     <div class="box">
     <img src="Images/kirae.png" alt="kiraeLogo" id="img">
     </div>
+
     <div class="links">
       <button type="button" class="btn3"><a href="login.php">Se connecter</a></button>
       <button type="button" class="btn3">À propos</button>
     </div>
     
+    <h2 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h2>
+    <form action="login.php" method="post">
+      <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+    </form>
+    
   </nav>
-
-  <?php echo "<h1>Bounjour " . $_SESSION["username"] . "</h1>";?>
-  <a href="logout.php">log out</a>
-    <nav class="plus">
+<?php
+  if(isset($_POST["logout"])){
+      header("Location:logout.php");
+  }
+?>
+  <nav class="plus">
 
       <div class="menu">
         <label for="check">
@@ -43,15 +54,15 @@ session_start();
         </form>
       <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
 
-    </nav>
+  </nav>
     <input type="checkbox" id="check">
         <div class="sidebar">
             <!-- <input type="search" name="search" id="search"> -->
             <div class="liens">
                 <ul>
-                    <li>Bricolage ></li>
-                    <li>Jardinage ></li>
-                    <li>Piscine ></li>
+                    <a href="categorieB.php"><li>Bricolage ></li></a>
+                    <a href="categorieJ.php"><li>Jardinage ></li></a>
+                    <a href="categorieP"><li>Piscine ></li></a>
                 </ul>
             </div>
         </div>
@@ -66,38 +77,38 @@ session_start();
       $sql = "SELECT * FROM `produit`";
       if(mysqli_num_rows($result) > 0){
         ?>
-        <div class="container">
-          <div class="row">
-    <?php
+  <div class="container">
+     <div class="row">
+      <?php
 
-          while($row = mysqli_fetch_array($result)){
+            while($row = mysqli_fetch_array($result)){
 
 
-    ?>
-      <div class="col-md-4 col-sm-6">
-        <div class="card-group">
-          <div class="card">
-            <div class="box">
-            <a href="detail.php?id=<?php echo $row["idProduit"];?>" >
-            <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"];?>" class="card-img-top" alt="ProductImage">
-            </a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title"><?php echo $row["nomProduit"];?></h4>
-              <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH';?></h5>
-              <p class="card-text"><?php echo $row["typeProduit"] ; ?></p>
+      ?>
+        <div class="col-md-4 col-sm-6">
+          <div class="card-group">
+            <div class="card">
+              <div class="box">
+              <a href="detail.php?id=<?php echo $row["idProduit"];?>" >
+              <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"];?>" class="card-img-top" alt="ProductImage">
+              </a>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><?php echo $row["nomProduit"];?></h4>
+                <h5 class="card-price"><?php echo $row["prixProduit"]. ' DH';?></h5>
+                <p class="card-text"><?php echo $row["typeProduit"] ; ?></p>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <?php
-        }
-      
-    }
-      ?>
-          </div>        
+        <?php
+          }
+        
+      }
+        ?>
+    </div>        
   </div>
 <footer>
         <div class="footer">

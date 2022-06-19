@@ -15,20 +15,34 @@ session_start();
 $messageEmail = $messagePassword = "";
 
 if(isset($_POST['submit'])){
-    $email = $_POST['email'];
+    $user = $_POST['name'];
     $password = $_POST['password'];
 
-    $sql = "SELECT passwordClient from `client` WHERE emailClient='$email' and passwordClient='$password'";
+    $sql = "SELECT passwordClient from `client` WHERE nomClient='$user' and passwordClient='$password'";
     $result = mysqli_query($connect, $sql);
     if($row=mysqli_fetch_assoc($result)){
-        $_SESSION["username"] = $row["nomClient"];
-        header('location:home.php');
+
+        // $user = $row["nomClient"];
+        $_SESSION["status"]=false;
+    
+        //condition for checking valid input from user
+    
+        if ( $user == $_POST["name"] && $password = $_POST["password"] ){
+    
+            $_SESSION["username"] = $user;
+            $_SESSION["status"]= true;
+            header('location:home.php');
+            
+        }
+        else{
+            echo "invalid credentials";
+        }
+              
     }else{
         $messageEmail = '<span class="error">* Votre adresse email est introuvable</span>';
         $messagePassword = '<span class="error">* Votre mot de pass est incorrect</span>';
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +72,9 @@ if(isset($_POST['submit'])){
 
 
             <div class="form-group">
-              <label for="exampleInputEmail1">E-mail</label>
+              <label for="exampleInputEmail1">Username</label>
               <?php echo $messageEmail; ?>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
             </div>
             
             <div class="form-group">
