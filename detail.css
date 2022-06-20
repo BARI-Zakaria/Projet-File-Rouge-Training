@@ -226,7 +226,7 @@ i {
     }
     .links {
         text-align: center;
-        justify-content: space-between;
+        float: right;
         width: 30%;
     }
     div.box {
@@ -266,6 +266,12 @@ i {
     #a {
         font-size: 1em;
         margin: 0;
+    }
+    h2 {
+        font-size: 0.7em;
+    }
+    .fa-phone {
+        display: none;
     }
 }
 

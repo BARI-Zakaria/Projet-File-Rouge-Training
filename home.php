@@ -26,14 +26,12 @@ if ($_SESSION["status"] != true){
     </div>
 
     <div class="links">
-      <button type="button" class="btn3"><a href="login.php">Se connecter</a></button>
-      <button type="button" class="btn3">À propos</button>
+      <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
+      <form action="login.php" method="post">
+        <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+      </form>
     </div>
     
-    <h2 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h2>
-    <form action="login.php" method="post">
-      <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
-    </form>
     
   </nav>
 <?php
@@ -43,16 +41,27 @@ if ($_SESSION["status"] != true){
 ?>
   <nav class="plus">
 
-      <div class="menu">
-        <label for="check">
-          <i class="fas fa-bars fa-1x" id="btn"></i>
-          <span class="cat">Catégories</span>
-        </label>
-      </div>
-      
-        <input type="text" class="form-control" name="prd" id="exampleDataList"  placeholder="Chercher ici un produit...">
-        </form>
-      <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
+    
+    
+    
+    <div class="menu">
+      <label for="check">
+        <i class="fas fa-bars fa-1x" id="btn"></i>
+        <span class="cat">Catégories</span>
+      </label>
+    </div>
+    
+    <input type="text" class="form-control" name="prd" id="exampleDataList"  placeholder="Chercher ici un produit...">
+  </form>
+  <?php if(isset($_SESSION["status"])){ ?>
+    <div class="links">
+      <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
+      <form action="login.php" method="post">
+        <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+      </form>
+    </div>
+  <?php } ?>
+      <!-- <button ypte="button" class="btn4"><a href="login.php">Se connecter</a></button> -->
 
   </nav>
     <input type="checkbox" id="check">

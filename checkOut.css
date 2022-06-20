@@ -177,10 +177,11 @@ i {
     }
     #img {
         width: 30%;
+        margin: 0;
     }
     div.box {
-        text-align: center;
-        margin: 0 0 0 15%;
+        /* float: left; */
+        margin: 0;
     }
     .btn4 {
         display: none;
@@ -217,4 +218,8 @@ i {
         font-size: 0.7em;
         margin: 0 40px 0 0;
     }
+    h2 {
+        font-size: 1em;
+        padding: 0 5px 0 0;
+      }
 }

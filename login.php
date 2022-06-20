@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
         }
               
     }else{
-        $messageEmail = '<span class="error">* Votre adresse email est introuvable</span>';
+        $messageEmail = '<span class="error">* Votre nom d\'utilisateur est introuvable</span>';
         $messagePassword = '<span class="error">* Votre mot de pass est incorrect</span>';
     }
 }
@@ -72,13 +72,13 @@ if(isset($_POST['submit'])){
 
 
             <div class="form-group">
-              <label for="exampleInputEmail1">Username</label>
+              <label for="exampleInputEmail1">Nom d'utilisateur</label>
               <?php echo $messageEmail; ?>
               <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
             </div>
             
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
+              <label for="exampleInputPassword1">Mot de pass</label>
               <?php echo $messagePassword; ?>
               <input type="password" class="form-control" id="exampleInputPassword1" name="password">
             </div>

@@ -14,9 +14,14 @@ display: flex;
 flex-direction: row;
 }
 .links {
-    width: 25%;
-    display: flex;
-    flex-direction: row;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+h4 {
+  padding: 0 10px 0 0;
 }
 #img {
     width: 40%;
@@ -119,13 +124,9 @@ p {
 }
 .sidebar a {
   display: block;
-  color: black;
+  /* color: black; */
   padding: 16px;
   text-decoration: none;
-}
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
 }
 .row {
   width: 100%;
@@ -315,5 +316,11 @@ opacity: 0;
     }
     .sidebar {
       top: 0;
+    }
+    h2 {
+      font-size: 0.7em;
+    }
+    .cate , .vvs {
+      font-size: 1em;
     }
 }

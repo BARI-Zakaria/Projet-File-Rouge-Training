@@ -26,14 +26,11 @@ if ($_SESSION["status"] != true){
     </div>
 
     <div class="links">
-      <button type="button" class="btn3"><a href="login.php">Se connecter</a></button>
-      <button type="button" class="btn3">À propos</button>
+      <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
+      <form action="login.php" method="post">
+        <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+      </form>
     </div>
-    
-    <h2 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h2>
-    <form action="login.php" method="post">
-      <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
-    </form>
     
   </nav>
 <?php
@@ -52,9 +49,18 @@ if ($_SESSION["status"] != true){
       
         <input type="text" class="form-control" name="prd" id="exampleDataList"  placeholder="Chercher ici un produit...">
         </form>
-      <button type="button" class="btn4"><a href="login.php">Se connecter</a></button>
-
+        <?php if(isset($_SESSION["status"])){ ?>
+          <div class="links">
+            <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
+            <form action="login.php" method="post">
+              <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+            </form>
+          </div>
+        <?php } ?>
     </nav>
+
+
+
     <input type="checkbox" id="check">
         <div class="sidebar">
             <!-- <input type="search" name="search" id="search"> -->

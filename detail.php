@@ -1,6 +1,14 @@
 <?php
 include 'connect.php';
 
+
+session_start();
+if ($_SESSION["status"] != true){
+
+  header("Location:login.php");
+}
+
+
 // GET THE PRODUCT WITH IT IMAGE AND DETAILS
 $id = "";
 if(isset($_GET["id"])){
@@ -35,9 +43,14 @@ $result2 = mysqli_query($connect, $sqlQuery2);
         <a href="home.php"><img src="Images/kirae.png" alt="kiraeLogo" id="img"></a>
         </div>
         <div class="links">
-        <button type="button" class="btn3"><a href="login.php">Se connecter</a></button>
-        <button type="button" class="btn4">À propos</button>
+          <!-- <button type="button" class="btn3"><a href="login.php">Se connecter</a></button> -->
+          <!-- <button type="button" class="btn4">À propos</button> -->
         </div>
+        <?php if(isset($_SESSION["status"])){ ?>
+            <div class="links">
+                <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
+            </div>
+        <?php } ?>
 
     </nav>
 <div class="container">
