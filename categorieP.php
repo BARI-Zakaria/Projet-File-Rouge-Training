@@ -28,7 +28,7 @@ if ($_SESSION["status"] != true){
     <div class="links">
       <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
       <form action="login.php" method="post">
-        <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+        <input class="btn btn-light" type="submit"  name="logout" value="Logout!">
       </form>
     </div>
     
@@ -53,7 +53,7 @@ if ($_SESSION["status"] != true){
           <div class="links">
             <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
             <form action="login.php" method="post">
-              <input class="btn btn-primary" type="submit"  name="logout" value="Logout!">
+              <input class="btn btn-light" type="submit"  name="logout" value="Logout!">
             </form>
           </div>
         <?php } ?>

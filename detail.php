@@ -142,7 +142,6 @@ $result2 = mysqli_query($connect, $sqlQuery2);
 
       <?php
         }
-      
     }
       ?>
           </div>        

@@ -18,3 +18,4 @@ function filterTable($sql){
 }
 $result1=mysqli_query($connect, $sql);
 ?>
+

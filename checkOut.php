@@ -71,7 +71,9 @@ $sql = "INSERT INTO reservation (`idClient`, `adresseLiv`, `dateCommandeD`, `dat
 $query = mysqli_query($connect, $sql);
 if($query){
     // header('location:test.php');
-    echo "<script> alert('DATA IS INSERT CHECK THE DATABASE') </script>";
+    echo '<div class="alert alert-warning" role="alert">
+                COMMANDE IS INSERT SUCCESSFULLY ✔. CHECK THE DATABASE !
+            </div>';
     }
 }?>
 <?php
