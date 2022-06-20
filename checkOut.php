@@ -8,6 +8,7 @@ if ($_SESSION["status"] != true){
 }
 
 // GET THE PRODUCT WITH IT IMAGE AND DETAILS
+$user = $_SESSION["status"];
 
 $id = "";
 if(isset($_GET["id"])){
@@ -21,18 +22,28 @@ $sqlQuery2 = "SELECT * FROM `produit` P
             INNER JOIN `media` M 
             ON P.idProduit = M.idProduit
             WHERE P.idProduit = $id";
+$sqlQuery3 = "SELECT idClient from client WHERE nomClient = '$user'";
+
 $result1 = mysqli_query($connect, $sqlQuery1);
 $result2 = mysqli_query($connect, $sqlQuery2);
+$result3 = mysqli_query($connect, $sqlQuery3);
 
 
-// INSERT INTO RESERVATION TABLE
+if(mysqli_num_rows($result3) > 0){
+    while($item = mysqli_fetch_assoc($result3)){
+        echo $row["idClient"];
+    }
+}
+
+
 
 if(isset($_POST['valid'])){
 $adr = $_POST['adresse'];
-$date = $_POST['date'];
+$dateD = $_POST['dateD'];
+$dateF = $_POST['dateF'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];    
-$sql = "INSERT INTO reservation (`adresseLiv`, `dateCommande`, `teleReserv`, `emailReserv`) VALUES ('$adr', '$date', '$phone', '$email')";
+$sql = "INSERT INTO reservation (`adresseLiv`, `idClient`, `dateCommandeD`, `dateCommandeF`, `teleReserv`, `emailReserv`) VALUES ('$adr', $user,'$dateD', '$dateF', '$phone', '$email')";
 $query = mysqli_query($connect, $sql);
 if($query){
     // header('location:ch.php');
@@ -92,9 +103,9 @@ if($query){
                     <div class="input-group mb-3">
                         <label for="staticText" class="col-sm-2 col-form-label" id="label">Date :</label>
                         <span class="text">Du</span>
-                        <input type="date" class="form-control" placeholder="Username" name="date">
-                        <!-- <span class="text">jusqu'à</span>
-                        <input type="date" class="form-control" placeholder="Server" name="date"> -->
+                        <input type="date" class="form-control" placeholder="Username" name="dateD">
+                        <span class="text">jusqu'à</span>
+                        <input type="date" class="form-control" placeholder="Server" name="dateF">
                     </div>
 
                     <div class="mb-3 row">

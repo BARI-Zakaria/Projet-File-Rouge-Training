@@ -230,8 +230,8 @@ i {
         width: 30%;
     }
     div.box {
-        text-align: left;
-        margin: 0;
+        text-align: center;
+        margin: 0 0 0 30%;
     }
     .navbar {
       display: block;
@@ -267,8 +267,9 @@ i {
         font-size: 1em;
         margin: 0;
     }
-    h2 {
-        font-size: 0.7em;
+    h4 {
+        /* font-size: 0.7em;    */
+        display: none;
     }
     .fa-phone {
         display: none;
