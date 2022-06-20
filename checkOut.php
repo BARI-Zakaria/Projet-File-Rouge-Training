@@ -8,7 +8,9 @@ if ($_SESSION["status"] != true){
 }
 
 // GET THE PRODUCT WITH IT IMAGE AND DETAILS
-$user = $_SESSION["status"];
+$user = $_SESSION["username"];
+
+
 
 $id = "";
 if(isset($_GET["id"])){
@@ -31,29 +33,55 @@ $result3 = mysqli_query($connect, $sqlQuery3);
 
 if(mysqli_num_rows($result3) > 0){
     while($item = mysqli_fetch_assoc($result3)){
-        echo $row["idClient"];
+        
+        $zaka = $item["idClient"];
     }
 }
-
-
-
 if(isset($_POST['valid'])){
+// $userID = $_POST['userID'];
 $adr = $_POST['adresse'];
 $dateD = $_POST['dateD'];
 $dateF = $_POST['dateF'];
 $phone = $_POST['phone'];
-$email = $_POST['email'];    
-$sql = "INSERT INTO reservation (`adresseLiv`, `idClient`, `dateCommandeD`, `dateCommandeF`, `teleReserv`, `emailReserv`) VALUES ('$adr', $user,'$dateD', '$dateF', '$phone', '$email')";
+$email = $_POST['email']; 
+$cc = $dateD;
+$vv = $dateF;
+
+$date1=date_create($cc); 
+$date2=date_create($vv);
+$diff=date_diff($date1,$date2);
+$diff->format("%a");
+
+$sql = "SELECT prixProduit FROM produit WHERE idProduit = 18";
+$result = $connect->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()){
+    // echo $row["prixProduit"];    
+    $dtf = $row["prixProduit"];
+    $total = $dtf * $diff->format("%a");
+    
+    }
+} else {
+  echo "0 results";
+}
+
+$sql = "INSERT INTO reservation (`idClient`, `adresseLiv`, `dateCommandeD`, `dateCommandeF`, `teleReserv`, `emailReserv`, `prixTotal`) VALUES ('$zaka', '$adr','$dateD', '$dateF', '$phone', '$email', '$total')";
 $query = mysqli_query($connect, $sql);
 if($query){
-    // header('location:ch.php');
-    echo "COMMANDE IS INSERT";
-}
-}
+    // header('location:test.php');
+    echo "<script> alert('DATA IS INSERT CHECK THE DATABASE') </script>";
+    }
+}?>
+<?php
+
+
 
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,13 +120,14 @@ if($query){
                     <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"];?>" class="card-img-top" alt="ProductImage">
                     <?php
                                                 
-                                            }
-                                            
-                                            $product = mysqli_fetch_assoc($result1);
-                                            ?>
+                    }
+                    
+                    $product = mysqli_fetch_assoc($result1);
+                    ?>
                     </div>
             <div class="reserv">
                     <h4 class="card-title" id="h4"><span class="bold"><?php echo  $product["nomProduit"]. ' .';?></span></h4>
+                    
 
                     <div class="input-group mb-3">
                         <label for="staticText" class="col-sm-2 col-form-label" id="label">Date :</label>
@@ -114,12 +143,14 @@ if($query){
                         <input type="text" class="form-control-plaintext" id="staticText" placeholder="Entrer une adresse de livraison" name="adresse">
                         </div>
                     </div>
+
                     <div class="mb-3 row">
                         <label for="staticPhone" class="col-sm-2 col-form-label">Téléphone</label>
                         <div class="col-sm-10">
                         <input type="text" class="form-control-plaintext" id="staticPhone" placeholder="06******00" name="phone">
                         </div>
                     </div>
+
                     <div class="mb-3 row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">E-mail</label>
                         <div class="col-sm-10">
@@ -131,7 +162,7 @@ if($query){
                 }
                 ?>
                 <button type="submit" name="valid" id="check">
-                <a href="checkOut.php?id=<?php echo $product["idProduit"];?>" id="a">Réserver
+                <a id="a">Réserver
                     <i class="fa-solid fa-circle-check"></i>
                 </a>
                 </button>   
