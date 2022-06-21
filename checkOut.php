@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-
+// START SESSION 
 session_start();
 if ($_SESSION["status"] != true){
 
@@ -34,7 +34,7 @@ $result3 = mysqli_query($connect, $sqlQuery3);
 if(mysqli_num_rows($result3) > 0){
     while($item = mysqli_fetch_assoc($result3)){
         
-        $zaka = $item["idClient"];
+        $userID = $item["idClient"];
     }
 }
 if(isset($_POST['valid'])){
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 
-$sql = "INSERT INTO reservation (`idClient`, `adresseLiv`, `dateCommandeD`, `dateCommandeF`, `teleReserv`, `emailReserv`, `prixTotal`) VALUES ('$zaka', '$adr','$dateD', '$dateF', '$phone', '$email', '$total')";
+$sql = "INSERT INTO reservation (`idClient`, `adresseLiv`, `dateCommandeD`, `dateCommandeF`, `teleReserv`, `emailReserv`, `prixTotal`) VALUES ('$userID', '$adr','$dateD', '$dateF', '$phone', '$email', '$total')";
 $query = mysqli_query($connect, $sql);
 if($query){
     // header('location:test.php');

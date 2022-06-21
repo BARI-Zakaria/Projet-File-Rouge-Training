@@ -108,7 +108,7 @@ if($check<=0){
 
             <div class="form-group">
               <label for="exampleInputEmail1">E-mail</label>
-              <?php if(isset($outputEmail)) {echo $outputCity;} ?>
+              <?php if(isset($outputEmail)) {echo $outputEmail;} ?>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
             </div>
             

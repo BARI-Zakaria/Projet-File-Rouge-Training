@@ -74,6 +74,7 @@ if(isset($_POST['submit'])){
 
             <div class="form-group">
               <label for="exampleInputEmail1">Nom d'utilisateur</label>
+              <!-- PRINT THE ERROR MESSAGE FOR USERNAME AND PASSWORD  -->
               <?php echo $messageEmail; ?>
               <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
             </div>

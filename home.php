@@ -1,4 +1,5 @@
 <?php
+//START SESSION
 
 session_start();
 if ($_SESSION["status"] != true){
@@ -25,7 +26,10 @@ if ($_SESSION["status"] != true){
     <img src="Images/kirae.png" alt="kiraeLogo" id="img">
     </div>
 
-    <div class="links">
+    <div class="links"> 
+
+      <!-- SHOW THE USERNAME AFTER LOGIN -->
+
       <h4 class="mt-2 text-white">Hello <?php echo $_SESSION["username"] ?></h4>
       <form action="login.php" method="post">
         <input class="btn btn-light" type="submit"  name="logout" value="Logout!">
@@ -75,6 +79,8 @@ if ($_SESSION["status"] != true){
             </div>
         </div>
 
+      <!-- SELECT THE PRODUCT DATA FROM DATABASE -->
+
       <?php 
       include 'connect.php';
       $query = "SELECT 	* FROM `media` M
@@ -97,6 +103,9 @@ if ($_SESSION["status"] != true){
           <div class="card-group">
             <div class="card">
               <div class="box">
+
+              <!-- ON CLICK ==> DETAIL PRODUCT PAGE  -->
+              
               <a href="detail.php?id=<?php echo $row["idProduit"];?>" >
               <img src="<?php  echo 'Images/Matériels/proPics/'. $row["urlMedia"];?>" class="card-img-top" alt="ProductImage">
               </a>

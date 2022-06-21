@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 
-
+// START SESSION 
 session_start();
 if ($_SESSION["status"] != true){
 
@@ -88,6 +88,9 @@ $result2 = mysqli_query($connect, $sqlQuery2);
         }
         ?>
         <button type="submit" name="valid" id="check">
+          
+          <!-- ON CLICK ==> CHECKOUT PAGE  -->
+
           <a href="checkOut.php?id=<?php echo $product["idProduit"];?>" class="a">Réserver
             <i class="fa-solid fa-circle-check"></i>
           </a>
